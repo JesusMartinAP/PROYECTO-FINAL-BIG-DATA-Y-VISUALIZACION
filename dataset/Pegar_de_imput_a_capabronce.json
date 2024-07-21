@@ -1,0 +1,32 @@
+{
+	"name": "Pegar_de_imput_a_capabronce",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CONEXION_ ADLS_CON_DATAFACTORY",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"nombre_de_Archivo": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().nombre_de_Archivo",
+					"type": "Expression"
+				},
+				"folderPath": "capabronce",
+				"fileSystem": "proyectofinal"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
